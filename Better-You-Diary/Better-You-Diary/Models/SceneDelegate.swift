@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  Better-You-Diary
-//
-//  Created by Toni Itkonen on 14.9.2021.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
