@@ -37,6 +37,35 @@ struct CoreDataManager {
         }
     }
     
+    func saveText(text: String) {
+        let context = persistentContainer.viewContext
+        
+        let textInstance = DaysEntity(context: context)
+        textInstance.text = text
+            
+        do {
+            try context.save()
+            print("Text is saved")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func saveTextAndDate(text: String, date: Date) {
+        let context = persistentContainer.viewContext
+        
+        let savedContentInstance = DaysEntity(context: context)
+        savedContentInstance.text = text
+        savedContentInstance.date = date
+            
+        do {
+            try context.save()
+            print("Text and Date is saved")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     // MARK: Fetch Notes
 //    func fetchEntries(_: DaysEntity) -> [DaysEntity] {
 //        guard let dayEntries = days?.allObjects as? [DaysEntity] else {
