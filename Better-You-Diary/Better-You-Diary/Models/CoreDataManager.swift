@@ -37,19 +37,19 @@ struct CoreDataManager {
         }
     }
     
-    func saveText(text: String) {
-        let context = persistentContainer.viewContext
-        
-        let textInstance = DaysEntity(context: context)
-        textInstance.text = text
-            
-        do {
-            try context.save()
-            print("Text is saved")
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
+//    func saveText(text: String) {
+//        let context = persistentContainer.viewContext
+//        
+//        let textInstance = DaysEntity(context: context)
+//        textInstance.text = text
+//            
+//        do {
+//            try context.save()
+//            print("Text is saved")
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//    }
     
     func saveTextAndDate(text: String, date: Date) {
         let context = persistentContainer.viewContext
@@ -61,6 +61,22 @@ struct CoreDataManager {
         do {
             try context.save()
             print("Text and Date is saved")
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func saveRate(rate: Int32) {
+        let context = persistentContainer.viewContext
+        
+        let savedContentInstance2 = DaysEntity(context: context)
+//        savedContentInstance.text = text
+//        savedContentInstance.date = date
+        savedContentInstance2.rate = rate
+            
+        do {
+            try context.save()
+            print("Rate is saved")
         } catch {
             print(error.localizedDescription)
         }
