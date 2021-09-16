@@ -6,70 +6,66 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var TextView: UITextView!
     @IBOutlet weak var rateControl: UISegmentedControl!
     
-    
-    
     //MARK: VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TextView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.1)
+        TextView.layer.cornerRadius = 20
     }
 
     //MARK: IB ACTIONS
-    @IBAction func saveText(_ sender: UIButton) {
+//    @IBAction func saveText(_ sender: UIButton) {
+//
+//            if let sisaltoData = TextView.text {
+//                CoreDataManager.shared.saveTextAndDate(text: sisaltoData, date: Date())
+//                print("Teksti tallennettu!")
+//            }
+//
+//    }
+  
+    @IBAction func saveTextDateRateButtonPressed(_ sender: UIButton) {
         
-            if let sisaltoData = TextView.text {
-                CoreDataManager.shared.saveTextAndDate(text: sisaltoData, date: Date())
-                print("Teksti tallennettu!")
-            }
-        
-
-        
-    }
-    @IBAction func rateButtonPressed(_ sender: UIButton) {
-//        if let sisaltoData2 = rateControl {
-//            CoreDataManager.shared.saveRate(rate: sisaltoData2)
-//            print("Rate tallennettu!")
-//        }
-        
-    }
-    
-    @IBAction func indexChanged(_ sender: Any) {
-        
-        switch rateControl.selectedSegmentIndex
-            {
+        switch rateControl.selectedSegmentIndex {
             case 0:
-                let value1: Int32 = 1
-                CoreDataManager.shared.saveRate(rate: value1)
-                print("Rate1 Tallennettu SegmentControllista!")
+                if let sisaltoData = TextView.text {
+                    let value1: Int32 = 1
+                    CoreDataManager.shared.saveTextAndDateAndRate(text: sisaltoData, date: Date(), rate: value1)
+                    print("Teksti ja Rate1 tallennettu!")
+                }
             case 1:
-                let value2: Int32 = 2
-                CoreDataManager.shared.saveRate(rate: value2)
-                print("Rate2 Tallennettu SegmentControllista!")
+                if let sisaltoData = TextView.text {
+                    let value2: Int32 = 2
+                    CoreDataManager.shared.saveTextAndDateAndRate(text: sisaltoData, date: Date(), rate: value2)
+                    print("Teksti ja Rate2 tallennettu!")
+                }
             case 2:
-                let value3: Int32 = 3
-                CoreDataManager.shared.saveRate(rate: value3)
-                print("Rate3 Tallennettu SegmentControllista!")
+                if let sisaltoData = TextView.text {
+                    let value3: Int32 = 3
+                    CoreDataManager.shared.saveTextAndDateAndRate(text: sisaltoData, date: Date(), rate: value3)
+                    print("Teksti ja Rate3 tallennettu!")
+                }
             case 3:
-                let value4: Int32 = 4
-                CoreDataManager.shared.saveRate(rate: value4)
-                print("Rate4 Tallennettu SegmentControllista!")
+                if let sisaltoData = TextView.text {
+                    let value4: Int32 = 4
+                    CoreDataManager.shared.saveTextAndDateAndRate(text: sisaltoData, date: Date(), rate: value4)
+                    print("Teksti ja Rate4 tallennettu!")
+                }
             case 4:
-                let value5: Int32 = 5
-                CoreDataManager.shared.saveRate(rate: value5)
-                print("Rate5 Tallennettu SegmentControllista!")
+                if let sisaltoData = TextView.text {
+                    let value5: Int32 = 5
+                    CoreDataManager.shared.saveTextAndDateAndRate(text: sisaltoData, date: Date(), rate: value5)
+                    print("Teksti ja Rate5 tallennettu!")
+                }
             default:
                 break
             }
         
-        
-//        if let sisaltoData2 = rateControl {
-//                    CoreDataManager.shared.saveRate(rate: sisaltoData2)
-//                    print("Rate tallennettu!")
-//                }
-        
     }
     
-    
-    
+    @IBAction func indexChanged(_ sender: Any) {
+        // DONT REMOVE
+    }
     
 //    @IBAction func saveText(_ sender: UIButton) {
 //
