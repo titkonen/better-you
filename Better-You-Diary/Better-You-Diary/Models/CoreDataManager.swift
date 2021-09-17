@@ -106,6 +106,20 @@ struct CoreDataManager {
 //        return dayEntries
 //    }
     
+    func fetchEntriesNewVersion() -> [DaysEntity] {
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<DaysEntity>(entityName: "DaysEntity")
+        
+        do {
+            let dayEntities = try context.fetch(fetchRequest)
+            print("Fetched content")
+            return dayEntities
+        } catch let err {
+            print("Failed to fetch note folders",err)
+            return []
+        }
+    }
+    
     // MARK:  Delete notes
     func deleteEntry(entry: DaysEntity) -> Bool {
         let context = persistentContainer.viewContext
