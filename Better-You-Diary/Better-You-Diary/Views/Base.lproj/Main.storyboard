@@ -111,7 +111,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="D38-7e-Dae"/>
-                        <segue destination="276-XC-ZpK" kind="relationship" relationship="viewControllers" id="ujS-tp-fw1"/>
+                        <segue destination="T4A-Jb-qx5" kind="relationship" relationship="viewControllers" id="5km-Ml-r4C"/>
                         <segue destination="Hyb-oi-rjA" kind="relationship" relationship="viewControllers" id="W6w-7V-y1N"/>
                         <segue destination="kgW-H9-wJz" kind="relationship" relationship="viewControllers" id="L0k-at-4vM"/>
                     </connections>
@@ -235,13 +235,14 @@ Send emails to our address: kirijaki@icloud.com and we will answer for you as so
         <!--ListVIew-->
         <scene sceneID="wGK-hU-qjv">
             <objects>
-                <viewController id="276-XC-ZpK" userLabel="ListVIew" customClass="ListViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i13-h1-WFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="276-XC-ZpK" userLabel="ListVIew" customClass="ListViewController" customModule="Better_You_Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="342-7E-Lqe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gMw-B1-yrr">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListViewControllerCell" textLabel="S56-eM-MOf" detailTextLabel="V4V-15-Pw0" style="IBUITableViewCellStyleSubtitle" id="o5E-S5-11O">
@@ -284,25 +285,31 @@ Send emails to our address: kirijaki@icloud.com and we will answer for you as so
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Days" image="books.vertical" catalog="system" id="FtV-KW-78t"/>
-                    <navigationItem key="navigationItem" id="XRC-i7-r5A">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="x1W-1N-rZ8">
-                            <connections>
-                                <action selector="refreshList:" destination="276-XC-ZpK" id="G11-Y6-AEC"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Kg8-Cf-xgi">
-                            <connections>
-                                <action selector="addContent:" destination="276-XC-ZpK" id="mRX-cE-G6B"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Days" id="XRC-i7-r5A"/>
                     <connections>
                         <outlet property="tableView" destination="gMw-B1-yrr" id="xtA-ru-8s4"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i13-h1-WFn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="905"/>
+            <point key="canvasLocation" x="1451" y="1050"/>
+        </scene>
+        <!--Days-->
+        <scene sceneID="Sab-Fd-Prb">
+            <objects>
+                <navigationController id="T4A-Jb-qx5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Days" image="books.vertical" catalog="system" id="XXA-nX-GhH"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pdX-9L-b8K">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1215686275" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="276-XC-ZpK" kind="relationship" relationship="rootViewController" id="sOW-0Z-1y8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6w-kH-zsU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154" y="1050"/>
         </scene>
     </scenes>
     <resources>

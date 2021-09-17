@@ -21,8 +21,9 @@ class ListViewController: UIViewController, NSFetchedResultsControllerDelegate {
     override func viewDidLoad() {
       super.viewDidLoad()
 
+        //navigationItem.title = "List of ideas"
       //title = "Diary 2.3"
-      tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+      //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
 
     }
     
@@ -72,6 +73,8 @@ extension ListViewController: UITableViewDataSource {
   
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "ListViewControllerCell", for: indexPath)
+    
+        
         guard let showDate = daysEntity[indexPath.row] as? DaysEntity,
           let showDateinList = showDate.date as Date? else {
             return cell
