@@ -4,12 +4,11 @@ class DaysCell: UITableViewCell {
     
     var daysData: DaysEntity! {
         didSet {
-            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yy hh:mm"
             dayTitle.text = daysData.text
             dateLabel.text = dateFormatter.string(from: daysData.date ?? Date())
-            
+            rateLabel.text = String(daysData.rate)
         }
     }
     
@@ -31,19 +30,19 @@ class DaysCell: UITableViewCell {
         return label
     }()
         
-//    /// Preview label
-//    fileprivate var previewLabel: UILabel = {
-//        let label = UILabel()
-//        label.text = "The note text will go here for note preview..."
-//        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-//        label.textColor = .white
-//        //label.textColor = UIColor.gray.withAlphaComponent(0.8)
-//        return label
-//    }()
+    /// Rate label
+    fileprivate var rateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "5"
+        label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        label.textColor = UIColor(red: 15/255, green: 193/255, blue: 246/255, alpha: 1)
+        label.textAlignment = .right
+        return label
+    }()
     
     /// horizontal stack view
     fileprivate lazy var horizontalStackView: UIStackView = {
-        let s = UIStackView(arrangedSubviews: [dayTitle, UIView()])
+        let s = UIStackView(arrangedSubviews: [rateLabel, dayTitle, UIView()])
         s.axis = .horizontal
         s.spacing = 20
         s.alignment = .leading
