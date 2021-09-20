@@ -143,9 +143,9 @@
                                 <rect key="frame" x="57" y="227" width="300" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemBlueColor"/>
-                                <state key="normal" title="Privacy policy (english)"/>
+                                <state key="normal" title="Privacy policy"/>
                                 <connections>
-                                    <segue destination="RJ5-um-FPo" kind="push" id="8lH-8Y-jWC"/>
+                                    <segue destination="RJ5-um-FPo" kind="presentation" id="Y33-uO-V9L"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1M5-MN-qfK">
@@ -189,28 +189,28 @@
                         <viewControllerLayoutGuide type="bottom" id="3b0-58-yYe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vgl-oW-JMg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgA-By-EJP">
-                                <rect key="frame" x="20" y="111" width="374" height="702"/>
-                                <string key="text">Kirijaki Oy operates Trailhero Spots application (Downloadable in Apple Appstore). This text is used to inform application users regarding our policies with the collection, use and disclosure of Personal Information if anyone decided to use our applications.
+                                <rect key="frame" x="20" y="23" width="374" height="785"/>
+                                <mutableString key="text">Kirijaki Oy operates Better You application (Downloadable in Apple Appstore). This text is used to inform application users regarding our policies with the collection, use and disclosure of Personal Information if anyone decided to use our applications.
 
 Information Collection and Use
-Trailhero Spots application and Kirijaki company does not collect any user information and data.
+Better You application and Kirijaki company does not collect any user information and data.
 
 Cookies
-Trailhero Spots does not send and collect any cookie information and data.
+Better You does not send and collect any cookie information and data.
 
 Service Providers
-Trailhero Spots does not employ any third party companies with user information or data.
+Better You does not employ any third party companies with user information or data.
 
 Changes to This Privacy Policy
 We may update our Privacy Policy from time to time. Thus, we advise you to review this view periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this view. These changes are effective immediately, after they are posted on this view.
 
 Contact Us
 If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.
-Send emails to our address: kirijaki@icloud.com and we will answer for you as soon as possible.</string>
+Send emails to our address: kirijaki@icloud.com and we will answer for you as soon as possible.</mutableString>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -307,14 +307,14 @@ Send emails to our address: kirijaki@icloud.com and we will answer for you as so
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eZ6-3i-BhF">
-                                            <rect key="frame" x="20" y="7.5" width="30" height="17"/>
+                                            <rect key="frame" x="20" y="6" width="35" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KC3-jX-x8T">
-                                            <rect key="frame" x="20" y="27" width="44" height="14.5"/>
+                                            <rect key="frame" x="20" y="26.5" width="53" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
