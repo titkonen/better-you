@@ -11,19 +11,29 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         TextView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.1)
-        TextView.layer.cornerRadius = 20
+        TextView.layer.cornerRadius = 12
     }
+    
+    func showAlertModal() {
+        let alert = UIAlertController(title: "Content saved successfully", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//            switch action.style{
+//                case .default:
+//                print("default")
+//
+//                case .cancel:
+//                print("cancel")
+//
+//                case .destructive:
+//                print("destructive")
+//
+//            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 
     //MARK: IB ACTIONS
-//    @IBAction func saveText(_ sender: UIButton) {
-//
-//            if let sisaltoData = TextView.text {
-//                CoreDataManager.shared.saveTextAndDate(text: sisaltoData, date: Date())
-//                print("Teksti tallennettu!")
-//            }
-//
-//    }
-  
     @IBAction func saveTextDateRateButtonPressed(_ sender: UIButton) {
         
         switch rateControl.selectedSegmentIndex {
@@ -61,20 +71,15 @@ class HomeViewController: UIViewController {
                 break
             }
         
+        showAlertModal()
+        
     }
     
     @IBAction func indexChanged(_ sender: Any) {
         // DONT REMOVE
     }
     
-//    @IBAction func saveText(_ sender: UIButton) {
-//
-//            if let tekstiData = TextView.text {
-//                CoreDataManager.shared.saveText(text: tekstiData)
-//                print("Teksti tallennettu!")
-//            }
-//
-//    }
+
 
     
 }
