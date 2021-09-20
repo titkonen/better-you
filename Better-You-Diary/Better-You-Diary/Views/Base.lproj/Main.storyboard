@@ -194,7 +194,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgA-By-EJP">
                                 <rect key="frame" x="20" y="23" width="374" height="785"/>
-                                <mutableString key="text">Kirijaki Oy operates Better You application (Downloadable in Apple Appstore). This text is used to inform application users regarding our policies with the collection, use and disclosure of Personal Information if anyone decided to use our applications.
+                                <string key="text">Kirijaki Oy operates Better You application (Downloadable in Apple Appstore). This text is used to inform application users regarding our policies with the collection, use and disclosure of Personal Information if anyone decided to use our applications.
 
 Information Collection and Use
 Better You application and Kirijaki company does not collect any user information and data.
@@ -210,7 +210,7 @@ We may update our Privacy Policy from time to time. Thus, we advise you to revie
 
 Contact Us
 If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.
-Send emails to our address: kirijaki@icloud.com and we will answer for you as soon as possible.</mutableString>
+Send emails to our address: kirijaki@icloud.com and we will answer for you as soon as possible.</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -279,7 +279,7 @@ Send emails to our address: kirijaki@icloud.com and we will answer for you as so
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pdX-9L-b8K">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1215686275" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.058823529411764705" green="0.75686274509803919" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="YDX-88-IFO" kind="relationship" relationship="rootViewController" id="CgE-RG-J1G"/>
@@ -296,7 +296,7 @@ Send emails to our address: kirijaki@icloud.com and we will answer for you as so
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wg9-P1-X3t">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0039215686269999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.058823529409999999" green="0.75686274509999996" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.1215686275" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="SavedTrailsCell" textLabel="eZ6-3i-BhF" detailTextLabel="KC3-jX-x8T" style="IBUITableViewCellStyleSubtitle" id="ZVR-Kd-SSv">
@@ -307,14 +307,14 @@ Send emails to our address: kirijaki@icloud.com and we will answer for you as so
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eZ6-3i-BhF">
-                                            <rect key="frame" x="20" y="6" width="35" height="20.5"/>
+                                            <rect key="frame" x="20" y="7.5" width="30" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KC3-jX-x8T">
-                                            <rect key="frame" x="20" y="26.5" width="53" height="18"/>
+                                            <rect key="frame" x="20" y="27" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -331,13 +331,7 @@ Send emails to our address: kirijaki@icloud.com and we will answer for you as so
                             <outlet property="delegate" destination="YDX-88-IFO" id="oRD-lE-4tG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Saved trails" id="Z8j-Ed-Ljo">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9PF-ut-npo">
-                            <connections>
-                                <action selector="addButtonPressed:" destination="YDX-88-IFO" id="Ydm-py-hIx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Days" id="Z8j-Ed-Ljo"/>
                     <connections>
                         <segue destination="Opf-0v-rl5" kind="push" id="JD6-LR-EIi"/>
                     </connections>

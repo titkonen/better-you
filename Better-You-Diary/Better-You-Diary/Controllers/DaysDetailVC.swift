@@ -24,7 +24,7 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        label.textColor = UIColor(red: 242/255, green: 224/255, blue: 201/255, alpha: 1)
+        label.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
         label.text = dateFormatter.string(from: daysData.date ?? Date())
         //label.text = "HELLO HELLO 3"
         label.textAlignment = .left
@@ -35,7 +35,7 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 40, weight: .semibold)
-        label.textColor = UIColor(red: 242/255, green: 224/255, blue: 201/255, alpha: 1)
+        label.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
         //label.text = dateFormatter.string(from: Date())
         label.text = "distance !!!"
         label.textAlignment = .left
@@ -55,7 +55,8 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       
-      view.backgroundColor = UIColor(red: 0/255, green: 59/255, blue: 59/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor.green
+      view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
       //print("viewWillAppear is loaded 2")
       
       distanceLabel.text = daysData.text

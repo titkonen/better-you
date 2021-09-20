@@ -18,7 +18,7 @@ class DaysCell: UITableViewCell {
         let label = UILabel()
         label.text = "Places to take photos"
         label.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
 
@@ -27,7 +27,7 @@ class DaysCell: UITableViewCell {
         let label = UILabel()
         label.text = "4/6/2019"
         label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        label.textColor = UIColor.white.withAlphaComponent(0.5)
+        label.textColor = UIColor.black.withAlphaComponent(0.5)
         return label
     }()
         
@@ -63,7 +63,7 @@ class DaysCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     
-        contentView.backgroundColor = UIColor(red: 2/255, green: 89/255, blue: 89/255, alpha: 1)
+        contentView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
       
         contentView.addSubview(verticalStackView)
         verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
