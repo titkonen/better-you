@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         TextView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.1)
+        TextView.textContainerInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         TextView.layer.cornerRadius = 12
         TextView.delegate = self
         
