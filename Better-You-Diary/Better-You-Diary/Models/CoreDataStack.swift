@@ -1,9 +1,9 @@
 import Foundation
 import CoreData
 
-protocol UsesCoreDataObjects: class {
-  var managedObjectContext: NSManagedObjectContext? { get set }
-}
+//protocol UsesCoreDataObjects: class {
+//  var managedObjectContext: NSManagedObjectContext? { get set }
+//}
 
 class CoreDataStack {
   

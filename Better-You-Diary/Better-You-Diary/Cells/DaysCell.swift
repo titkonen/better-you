@@ -5,7 +5,7 @@ class DaysCell: UITableViewCell {
     var daysData: DaysEntity! {
         didSet {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yy hh:mm"
+            dateFormatter.dateFormat = "MM/dd/yy HH:mm"
             dayTitle.text = daysData.text
             dateLabel.text = dateFormatter.string(from: daysData.date ?? Date())
             rateLabel.text = String(daysData.rate)

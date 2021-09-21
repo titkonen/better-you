@@ -7,7 +7,7 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
     
     let dateFormatter: DateFormatter = {
           let dateFormatter = DateFormatter()
-          dateFormatter.dateFormat = "MMMM dd, YYYY hh:mm"
+          dateFormatter.dateFormat = "MMMM dd, YYYY HH:mm"
           return dateFormatter
     }()
     
