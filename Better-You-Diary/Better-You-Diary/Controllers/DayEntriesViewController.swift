@@ -78,9 +78,12 @@ class DayEntriesViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
-      guard let contentToRemove = daysEntity[indexPath.row] as? DaysEntity, editingStyle == .delete else {
-          return
-      }
+        /// Let's keep this for a backup?
+//      guard let contentToRemove = daysEntity[indexPath.row] as? DaysEntity, editingStyle == .delete else {
+//          return
+//      }
+  
+        let contentToRemove = daysEntity[indexPath.row]
         
       //when delete is tapped
         daysEntity.remove(at: indexPath.row)
