@@ -6,5 +6,9 @@
 //
 
 import Foundation
+import CoreData
 
-// This file is uploaded to github
+/// Git switchillä otettu alas ja nyt tehty muutoksia ja pushattu ylös
+
+//PÖÖÖÖ
+
