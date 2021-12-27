@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F6E8E6F26F4BE49000FB1F2 /* DayEntriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E8E6E26F4BE49000FB1F2 /* DayEntriesViewController.swift */; };
-		0F6E8E7126F4BE68000FB1F2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E8E7026F4BE68000FB1F2 /* CoreDataStack.swift */; };
+		0F6E8E7126F4BE68000FB1F2 /* POIS__CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E8E7026F4BE68000FB1F2 /* POIS__CoreDataStack.swift */; };
 		0F71FFC326F851B1009A5A48 /* DaysDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71FFC226F851B1009A5A48 /* DaysDetailVC.swift */; };
 		0F71FFC626F85636009A5A48 /* DaysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71FFC526F85636009A5A48 /* DaysCell.swift */; };
 		0FEE791526F06D8200F3A947 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEE791426F06D8200F3A947 /* AppDelegate.swift */; };
@@ -23,7 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0F6E8E6E26F4BE49000FB1F2 /* DayEntriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayEntriesViewController.swift; sourceTree = "<group>"; };
-		0F6E8E7026F4BE68000FB1F2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0F6E8E7026F4BE68000FB1F2 /* POIS__CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIS__CoreDataStack.swift; sourceTree = "<group>"; };
 		0F71FFC226F851B1009A5A48 /* DaysDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysDetailVC.swift; sourceTree = "<group>"; };
 		0F71FFC526F85636009A5A48 /* DaysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysCell.swift; sourceTree = "<group>"; };
 		0FEE791126F06D8200F3A947 /* Better-You-Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Better-You-Diary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +93,7 @@
 				0FEE791426F06D8200F3A947 /* AppDelegate.swift */,
 				0FEE791626F06D8200F3A947 /* SceneDelegate.swift */,
 				0FEE792B26F0A5A800F3A947 /* CoreDataManager.swift */,
-				0F6E8E7026F4BE68000FB1F2 /* CoreDataStack.swift */,
+				0F6E8E7026F4BE68000FB1F2 /* POIS__CoreDataStack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 				0FEE792C26F0A5A800F3A947 /* CoreDataManager.swift in Sources */,
 				0FEE792A26F0A46400F3A947 /* better-you-datamodel.xcdatamodeld in Sources */,
 				0F6E8E6F26F4BE49000FB1F2 /* DayEntriesViewController.swift in Sources */,
-				0F6E8E7126F4BE68000FB1F2 /* CoreDataStack.swift in Sources */,
+				0F6E8E7126F4BE68000FB1F2 /* POIS__CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

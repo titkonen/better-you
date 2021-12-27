@@ -7,6 +7,7 @@ class DayEntriesViewController: UITableViewController {
     lazy var coreDataStack = CoreDataStack(modelName: "better-you-datamodel")
     var daysEntity = [DaysEntity]()
     fileprivate let CustomCell:String = "CustomCell"
+    fileprivate var notes = [DaysEntity]()
     
     lazy var paivanMuotoilu: DateFormatter = {
       let formatter = DateFormatter()
@@ -19,6 +20,7 @@ class DayEntriesViewController: UITableViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
 
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +34,8 @@ class DayEntriesViewController: UITableViewController {
 
         do {
           daysEntity = try coreDataStack.managedContext.fetch(lataaData)
+            print("DetailVC View WillAppear fetched.")
+            //daysEntity = try CoreDataManager.shared.fetchEntries(lataaData)
         } catch let error as NSError {
           print("Could not fetch. \(error), \(error.userInfo)")
         }
@@ -62,7 +66,7 @@ class DayEntriesViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       let noteDetailController = DaysDetailVC()
       let noteForRow = self.daysEntity[indexPath.row]
-      noteDetailController.daysData = noteForRow
+      noteDetailController.daysEntryData = noteForRow
       
       navigationController?.pushViewController(noteDetailController, animated: true)
     }
@@ -84,14 +88,22 @@ class DayEntriesViewController: UITableViewController {
 //      }
   
         let contentToRemove = daysEntity[indexPath.row]
-        
-      //when delete is tapped
         daysEntity.remove(at: indexPath.row)
 
-      coreDataStack.managedContext.delete(contentToRemove)
-      coreDataStack.saveContext()
-      tableView.deleteRows(at: [indexPath], with: .automatic)
+        coreDataStack.managedContext.delete(contentToRemove)
+        coreDataStack.saveContext()
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
     
 } // End of Main class
+
+// MARK: EXTENSION NoteDelegate
+extension DayEntriesViewController: NoteDelegate {
+    func saveNewNote(text: String, date: Date, rate: Int32) {
+        let newDayEntry = CoreDataManager.shared.createNewEntry(text: text, date: date, rate: rate) ///Creates new note to the list and coredata
+        notes.append(newDayEntry) /// FilePrivate variable
+        //filteredNotes.append(newDayEntry)
+        self.tableView.insertRows(at: [IndexPath(row: notes.count - 1, section: 0)], with: .fade)
+    }
+}

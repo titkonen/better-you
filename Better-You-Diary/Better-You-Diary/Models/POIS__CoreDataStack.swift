@@ -37,5 +37,23 @@ class CoreDataStack {
       print("Unresolved error \(error), \(error.userInfo)")
     }
   }
+    
+    // MARK:  Update notes Testing
+    func saveUpdatedEntryTesting(entry: DaysEntity, newUpdatedText: String) {
+       // let context = persistentContainer.viewContext
+        
+        guard managedContext.hasChanges else { return }
+        
+        //entry.rate = newRate
+        entry.text = newUpdatedText
+        entry.date = Date()
+
+        do {
+            try managedContext.save()
+            print("Entry updates succeed")
+        } catch let err {
+            print("Failed to update text1", err)
+        }
+    }
   
 }

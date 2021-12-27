@@ -1,9 +1,14 @@
 import UIKit
 
+protocol NoteDelegate {
+    func saveNewNote(text: String, date: Date, rate: Int32)
+}
+
 class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
     
     // MARK: PROPERTIES
     var daysEntity: DaysEntity!
+    lazy var coreDataStack = CoreDataStack(modelName: "better-you-datamodel")
     
     let dateFormatter: DateFormatter = {
           let dateFormatter = DateFormatter()
@@ -11,20 +16,22 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
           return dateFormatter
     }()
     
-    var daysData: DaysEntity! {
+    var daysEntryData: DaysEntity! {
         didSet {
-            tekstikentta.text = daysData.text
-            dateLabel.text = dateFormatter.string(from: daysData.date ?? Date())
-            rateLabel.text = String(daysData.rate)
+            tekstikentta.text = daysEntryData.text
+            dateLabel.text = dateFormatter.string(from: daysEntryData.date ?? Date())
+            rateLabel.text = String(daysEntryData.rate)
         }
     }
+    
+    var delegate: NoteDelegate?
     
     fileprivate lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
-        label.text = dateFormatter.string(from: daysData.date ?? Date())
+        label.text = dateFormatter.string(from: daysEntryData.date ?? Date())
         label.textAlignment = .left
         return label
     }()
@@ -37,6 +44,7 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
         tekstilaatikko.textColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
         tekstilaatikko.text = "Thoughts of the day"
         tekstilaatikko.textAlignment = .left
+        tekstilaatikko.isEditable = true
         return tekstilaatikko
     }()
     
@@ -50,12 +58,17 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
         return label
     }()
     
-    
+    // MARK: VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tekstikentta.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.1)
+        tekstikentta.textContainerInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        tekstikentta.layer.cornerRadius = 12
+        //tekstikentta.delegate = self
+        
         print("viewDidLoad is loaded")
-        view.backgroundColor = .orange
+        //view.backgroundColor = .orange
         setupUI()
         
     }
@@ -65,15 +78,52 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
       
         view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
       //print("viewWillAppear is loaded 2")
-      
-      //distanceLabel.text = daysData.text
-      //durationLabel.text = String(noteData.duration) + " sec"
-      //dateLabel?.text = "HELLO HELLO"
+        
+        let topItems: [UIBarButtonItem] = [
+            UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(self.updateText)),
+        ]
+
+        self.navigationItem.setRightBarButtonItems(topItems, animated: false)
       
     }
     
-    // MARK: UI
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.daysEntryData == nil {
+            delegate?.saveNewNote(text: tekstikentta.text, date: Date(), rate: Int32(rateLabel.text!)!)
+            print("Route A")
+        } else {
+            // update our note here
+            guard let newUpdatedText = self.tekstikentta.text else {
+                return
+            }
+            CoreDataManager.shared.saveUpdatedEntry(entry: self.daysEntryData, newUpdatedText: newUpdatedText)
+            print("Route B")
+        }
+    }
     
+    // MARK: FUNCTIONS
+    @objc fileprivate func updateText() {
+        
+        if self.daysEntryData == nil {
+            delegate?.saveNewNote(text: tekstikentta.text, date: Date(), rate: Int32(rateLabel.text!)!)
+            print("Route C")
+        } else {
+            // update our note here
+            guard let newUpdatedText = self.tekstikentta.text else {
+                return
+            }
+            CoreDataManager.shared.saveUpdatedEntry(entry: self.daysEntryData, newUpdatedText: newUpdatedText)
+            //coreDataStack.saveUpdatedEntryTesting(entry: self.daysEntryData, newUpdatedText: newUpdatedText)
+            print("Route D1")
+        }
+        
+        print("updateText Pressed 2")
+    }
+    
+    
+    // MARK: BUILDING THE UI
     fileprivate func setupUI() {
         view.addSubview(dateLabel)
         view.addSubview(tekstikentta)
@@ -92,12 +142,8 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
         tekstikentta.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         tekstikentta.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         tekstikentta.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -560).isActive = true
-      
-
         
-      
+
     }
-    
-    
     
 }
