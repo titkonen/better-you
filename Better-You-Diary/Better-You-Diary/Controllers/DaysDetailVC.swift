@@ -58,6 +58,31 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
         return label
     }()
     
+    fileprivate lazy var imageBox: UIImageView = {
+        let box = UIImageView()
+        box.frame = CGRect(x: 20, y: 410, width: 300, height: 200)
+        box.backgroundColor = .lightGray
+        return box
+    }()
+    
+    fileprivate var loadPhotoButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .blue
+        button.frame = CGRect(x: 20, y: 350, width: 100, height: 40)
+        button.setTitle("Load Photo", for: .normal)
+        button.addTarget(self, action: #selector(loadPhotoButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
+    fileprivate var savePhotoButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemGreen
+        button.frame = CGRect(x: 160, y: 350, width: 100, height: 40)
+        button.setTitle("Save Photo", for: .normal)
+        button.addTarget(self, action: #selector(savePhotoButtonPressed), for: .touchUpInside) ///savePhotoButtonPressed
+        return button
+    }()
+    
     // MARK: VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +129,15 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
     }
     
     // MARK: FUNCTIONS
+    @objc fileprivate func loadPhotoButtonPressed() {
+        print("loadPhotoButtonPressed")
+    }
+    
+    @objc fileprivate func savePhotoButtonPressed() {
+        print("savePhotoButtonPressed")
+    }
+    
+    
     @objc fileprivate func updateText() {
         
         if self.daysEntryData == nil {
@@ -128,6 +162,9 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
         view.addSubview(dateLabel)
         view.addSubview(tekstikentta)
         view.addSubview(rateLabel)
+        view.addSubview(imageBox)
+        view.addSubview(loadPhotoButton)
+        view.addSubview(savePhotoButton)
         
         dateLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
