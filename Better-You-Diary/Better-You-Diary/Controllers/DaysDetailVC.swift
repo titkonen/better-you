@@ -4,7 +4,10 @@ protocol NoteDelegate {
     func saveNewNote(text: String, date: Date, rate: Int32)
 }
 
-class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
+class DaysDetailVC: UIViewController {
+    
+    // MARK: Photo properties
+    var image: UIImage?
     
     // MARK: PROPERTIES
     var daysEntity: DaysEntity!
@@ -128,16 +131,21 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
         }
     }
     
-    // MARK: FUNCTIONS
+    // MARK: Photo Feature Functions
+    func show(image: UIImage) {
+        imageBox.image = image
+    }
+    
     @objc fileprivate func loadPhotoButtonPressed() {
         print("loadPhotoButtonPressed")
+        pickPhoto()
     }
     
     @objc fileprivate func savePhotoButtonPressed() {
         print("savePhotoButtonPressed")
     }
     
-    
+    // MARK: Functions
     @objc fileprivate func updateText() {
         
         if self.daysEntryData == nil {
@@ -152,10 +160,8 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
             //coreDataStack.saveUpdatedEntryTesting(entry: self.daysEntryData, newUpdatedText: newUpdatedText)
             print("Route D1")
         }
-        
         print("updateText Pressed 2")
     }
-    
     
     // MARK: BUILDING THE UI
     fileprivate func setupUI() {
@@ -179,8 +185,74 @@ class DaysDetailVC: UIViewController, UINavigationControllerDelegate {
         tekstikentta.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         tekstikentta.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         tekstikentta.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -560).isActive = true
-        
-
     }
     
 }
+
+// MARK: Photo Extensions
+extension DaysDetailVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    
+    // MARK: - Image Helper Methods
+    func takePhotoWithCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func choosePhotoFromLibrary() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func pickPhoto() {
+      if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        showPhotoMenu()
+      } else {
+        choosePhotoFromLibrary()
+      }
+    }
+
+    func showPhotoMenu() {
+      let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+      let actCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(actCancel)
+
+      let actPhoto = UIAlertAction(
+        title: "Take Photo",
+        style: .default) { _ in
+        self.takePhotoWithCamera()
+      }
+        
+      alert.addAction(actPhoto)
+
+      let actLibrary = UIAlertAction(
+        title: "Choose From Library",
+        style: .default) { _ in
+          self.choosePhotoFromLibrary()
+        }
+      alert.addAction(actLibrary)
+
+      present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Image Picker Delegates
+    ///This is for showing photo in view
+    func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+          if let theImage = image {
+            show(image: theImage) /// Calls show photo function
+          }
+        dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+
